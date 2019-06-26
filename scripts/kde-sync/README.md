@@ -3,11 +3,11 @@
 >Use kde-sync to quickly and easily setup copying folders from a remote device over kde connect to a local directory
 
 ## Kde Sync
-This script is useful for easily setting up a system to copy files from your android phone/tablet to your computer over WiFi without the need for cables or manually exploring and copying files over.
+This script can be used for setting up a system to copy files from your android phone/tablet to your computer over WiFi using KDEConnect.
 
 The device need's to be paired and reachable for this script to run.
 
-You will need to know what folder's on the target device to copy over so it does require you initially browse your device to find the necessary folders. This script allows you to query where the device is located when provided with 'query' so you can cd into it and browse manually
+You will need to know what folder's on the target device to copy over so it does require you initially browse your device to find the necessary folders. This script allows you to query where the device is mounted when provided with 'query' so you can browse to it and view the folders
 
 This script only works with a device's builtin storage for now until I have a device that I can test with external SD cards
 
@@ -26,7 +26,6 @@ Where:
 * `<TargetDeviceDirectory>` : Path to directory on device
 * `<LocalDirectory>` : Path to local directory
 * `<OperationType>` : either 'move' or 'copy'
-
 
 To query the device directory:
 ```
