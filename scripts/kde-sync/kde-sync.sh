@@ -24,9 +24,9 @@ if [ $isMounted == "true" ]; then
   echo "Device Mounted!"
 else
   echo "Device not mounted, attempting to mount"
-  qdbus org.kde.kdeconnect /modules/kdeconnect/devices/f3ffd22f7e03bb92/sftp org.kde.kdeconnect.device.sftp.mount
+  qdbus org.kde.kdeconnect /modules/kdeconnect/devices/$deviceId/sftp org.kde.kdeconnect.device.sftp.mount
   sleep 1
-  isMounted=$(qdbus org.kde.kdeconnect /modules/kdeconnect/devices/f3ffd22f7e03bb92/sftp org.kde.kdeconnect.device.sftp.isMounted)
+  isMounted=$(qdbus org.kde.kdeconnect /modules/kdeconnect/devices/$deviceId/sftp org.kde.kdeconnect.device.sftp.isMounted)
   if [ $isMounted == "false" ]; then
     echo "Unable to mount device, aborting..."
     exit 0
@@ -35,7 +35,7 @@ else
   fi
 fi
 
-tempDir=$(qdbus org.kde.kdeconnect /modules/kdeconnect/devices/f3ffd22f7e03bb92/sftp org.kde.kdeconnect.device.sftp.getDirectories | grep "All" | awk '{print $1}')
+tempDir=$(qdbus org.kde.kdeconnect /modules/kdeconnect/devices/$deviceId/sftp org.kde.kdeconnect.device.sftp.getDirectories | grep "All" | awk '{print $1}')
 deviceRootDir="${tempDir%?}"
 
 # Check whether the device is being queried or continue to operations
